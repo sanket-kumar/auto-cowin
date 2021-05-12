@@ -36,9 +36,9 @@ module.exports = {
         this.autoSlotBookingDistrictWise(districts, 0, slots, (callback) => {
             counter++;
 
-            if (counter % 10 == 0) {
-                console.log("..");
-            }
+            // if (counter % 10 == 0) {
+            //     console.log("..");
+            // }
             if (slots.length > 0) {
                 console.log("Final slots data :: ");
                 console.log(slots);
@@ -94,14 +94,14 @@ module.exports = {
         request(options, function(error, response) {
             if (error) throw new Error(error);
             let availableSlotData = processCowinData(response.body);
-            // console.log(
-            //     "District: " +
-            //     district_id +
-            //     " | Slots: " +
-            //     availableSlotData.available_slots.length +
-            //     "| Total Sessions: " +
-            //     availableSlotData.totalSessions
-            // );
+            console.log(
+                "District: " +
+                district_id +
+                " | Slots: " +
+                availableSlotData.available_slots.length +
+                "| Total Sessions: " +
+                availableSlotData.totalSessions
+            );
             callback(availableSlotData);
         });
     },
